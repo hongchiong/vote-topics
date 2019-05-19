@@ -86,7 +86,7 @@ class Topics extends Component {
           <Form>
             <FormGroup>
               <Label for="topicConent">Add New Topic</Label>
-              <Input type="textarea" name="text" id="topicConent" maxlength="255" onChange={this.handleChange} value={this.state.content}/>
+              <Input type="textarea" name="text" id="topicConent" maxlength="255" placeholder="Enter your topic. (Max 255 Characters)" onChange={this.handleChange} value={this.state.content}/>
             </FormGroup>
             <Button color="primary" onClick={this.addTopic}>Submit Topic</Button>
           </Form>
