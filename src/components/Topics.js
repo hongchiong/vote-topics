@@ -20,6 +20,7 @@ class Topics extends Component {
 		this.state = {
       content: "",
       topics: [],
+      showAll: false
     };
   }
 
@@ -70,8 +71,20 @@ class Topics extends Component {
     this.setState({topics: topics});
   }
   
+  showAll = () => {
+    this.setState({ showAll: !this.state.showAll });
+  }
+
   render() {
-    const topics = this.state.topics.map((topic, key) => {
+    const topics = this.state.showAll ? 
+    this.state.topics.map((topic, key) => {
+      return (
+        <ListGroupItem key={key}>
+          <TopicCard index={key} topic={topic} upVote={this.upVote} downVote={this.downVote}/>
+        </ListGroupItem>
+        );
+    }) : 
+    this.state.topics.slice(0,20).map((topic, key) => {
       return (
         <ListGroupItem key={key}>
           <TopicCard index={key} topic={topic} upVote={this.upVote} downVote={this.downVote}/>
@@ -90,6 +103,7 @@ class Topics extends Component {
             <Button color="primary" onClick={this.addTopic}>Submit Topic</Button>
           </Form>
         </ListGroupItem>
+          <Button color="info" onClick={this.showAll}>{this.state.showAll ? "Showing All" : "Showing Top 20"}</Button>
         {topics}
       </ListGroup>
     )
