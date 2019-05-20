@@ -8,8 +8,8 @@ const TopicCard = ({index, topic, upVote, downVote}) => (
       <CardTitle>Votes: {topic.votes}</CardTitle>
       <CardText>{topic.content}</CardText>
       <ButtonGroup>
-        <Button color="success" onClick={upVote} index={index}>👍</Button>
-        <Button color="danger" onClick={downVote} index={index}>👎</Button>
+        <Button className="upvote-btn" color="success" onClick={upVote} index={index}>👍</Button>
+        <Button className="downvote-btn" color="danger" onClick={downVote} index={index}>👎</Button>
       </ButtonGroup>
     </CardBody>
   </Card>
@@ -100,10 +100,12 @@ class Topics extends Component {
               <Label for="topicConent">Add New Topic</Label>
               <Input type="textarea" name="text" id="topicConent" maxlength="255" placeholder="Enter your topic. (Max 255 Characters)" onChange={this.handleChange} value={this.state.content}/>
             </FormGroup>
-            <Button color="primary" onClick={this.addTopic}>Submit Topic</Button>
+            <Button className="add-topic-btn" color="primary" onClick={this.addTopic}>Submit Topic</Button>
           </Form>
         </ListGroupItem>
-          <Button color="info" onClick={this.showAll}>{this.state.showAll ? "Showing All" : "Showing Top 20"}</Button>
+          <Button className="show-all" color="info" onClick={this.showAll}>
+            {this.state.showAll ? "Showing All" : "Showing Top 20"}
+          </Button>
         {topics}
       </ListGroup>
     )
