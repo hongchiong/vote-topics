@@ -8,8 +8,8 @@ const TopicCard = ({index, topic, upVote, downVote}) => (
       <CardTitle>Votes: {topic.votes}</CardTitle>
       <CardText>{topic.content}</CardText>
       <ButtonGroup>
-        <Button color="success" onClick={upVote} index={index}>👍</Button>
-        <Button color="danger" onClick={downVote} index={index}>👎</Button>
+        <Button className="upvote-btn" color="success" onClick={upVote} index={index}>👍</Button>
+        <Button className="downvote-btn" color="danger" onClick={downVote} index={index}>👎</Button>
       </ButtonGroup>
     </CardBody>
   </Card>

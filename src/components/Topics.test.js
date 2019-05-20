@@ -40,6 +40,3 @@ it('Should show all Topics after toggling show-all button', () => {
   //Expect all topics shown
   expect(component.find('TopicCard').length).toEqual(30);
 });
-
-
-
