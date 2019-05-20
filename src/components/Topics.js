@@ -100,10 +100,12 @@ class Topics extends Component {
               <Label for="topicConent">Add New Topic</Label>
               <Input type="textarea" name="text" id="topicConent" maxlength="255" placeholder="Enter your topic. (Max 255 Characters)" onChange={this.handleChange} value={this.state.content}/>
             </FormGroup>
-            <Button color="primary" onClick={this.addTopic}>Submit Topic</Button>
+            <Button className="add-topic-btn" color="primary" onClick={this.addTopic}>Submit Topic</Button>
           </Form>
         </ListGroupItem>
-          <Button color="info" onClick={this.showAll}>{this.state.showAll ? "Showing All" : "Showing Top 20"}</Button>
+          <Button className="show-all" color="info" onClick={this.showAll}>
+            {this.state.showAll ? "Showing All" : "Showing Top 20"}
+          </Button>
         {topics}
       </ListGroup>
     )
